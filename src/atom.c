@@ -86,6 +86,12 @@ G_ATOM* atom_dup(G_ATOM* source) {
     return res;
 }
 
+void atom_print(G_ATOM* atom) {
+    char* str = atom_str(atom);
+    printf("%s", str);
+    free(str);
+}
+
 
 #define GC_INITIAL_CAP      (16)
 #define GC_ATOM_SIZEOF      (sizeof(G_ATOM*))
@@ -127,3 +133,13 @@ size_t atom_list_push(G_ATOM_LIST* list, G_ATOM* element) {
     return atom_list_push_same(list, atom_dup(element));
 }
 
+G_ATOM* atom_list_pop(G_ATOM_LIST* list) {
+    if(list->size == 0) {
+        return NULL;
+    }
+    G_ATOM* last = list->memory[--list->size];
+    
+    // shrink if necessary?
+    
+    return last;
+}

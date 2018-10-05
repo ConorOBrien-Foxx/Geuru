@@ -39,6 +39,7 @@ G_ATOM*         atom_of_double  (double);
 G_ATOM*         atom_of_list    (G_ATOM_LIST*);
 char*           atom_str        (G_ATOM*);
 G_ATOM*         atom_dup        (G_ATOM*);
+void            atom_print      (G_ATOM*);
 
 //------- G_ATOM_LIST
 G_ATOM_LIST*    atom_list_create    ();
@@ -46,5 +47,6 @@ void            atom_list_grow      (G_ATOM_LIST*);
 void            atom_list_resize    (G_ATOM_LIST*);
 size_t          atom_list_push      (G_ATOM_LIST*, G_ATOM*);
 size_t          atom_list_push_same (G_ATOM_LIST*, G_ATOM*);
+G_ATOM*         atom_list_pop       (G_ATOM_LIST*);
 
 #endif

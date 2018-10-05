@@ -8,9 +8,7 @@ int main() {
         atom_list_push_same(list, atom_of_int(i * i));
     }
     
-    for(size_t i = 0; i < list->size; i++) {
-        char* str = atom_str(list->memory[i]);
-        printf("%s\n", str);
-        free(str);
-    }
+    G_ATOM* tail = atom_list_pop(list);
+    
+    atom_print(tail);
 }
